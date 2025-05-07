@@ -2,20 +2,24 @@ import './App.css';
 import GmailDotGenerator from './components/GmailDotGenerator';
 import ThemeToggle from './components/ThemeToggle';
 import { Toaster } from 'sonner';
+import { Analytics } from '@vercel/analytics/next';
 
 const App: React.FC = () => {
   return (
-    <div className='min-h-screen flex flex-col items-center justify-center p-4 md:p-8'>
-      <div className='absolute top-4 right-4'>
-        <ThemeToggle />
+    <>
+      <div className='min-h-screen flex flex-col items-center justify-center p-4 md:p-8'>
+        <div className='absolute top-4 right-4'>
+          <ThemeToggle />
+        </div>
+
+        <main className='w-full max-w-xl flex flex-col items-center justify-center'>
+          <GmailDotGenerator />
+        </main>
+
+        <Toaster position='top-center' />
       </div>
-
-      <main className='w-full max-w-xl flex flex-col items-center justify-center'>
-        <GmailDotGenerator />
-      </main>
-
-      <Toaster position='top-center' />
-    </div>
+      <Analytics />
+    </>
   );
 };
 
